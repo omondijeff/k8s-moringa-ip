@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: backend-config
+          image: omondijeff/yolo/backend
+          name: backend
+          ports:
+            - containerPort: 3001
+          volumeMounts:
+            - mountPath: /server
+              name: backend-data
+      volumes:
+        - configMap:
+            name: backend-config
+          name: backend-data

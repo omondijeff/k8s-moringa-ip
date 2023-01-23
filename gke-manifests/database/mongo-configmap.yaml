@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+data: null
+db_name: yolomy
+kind: ConfigMap
+metadata: null
+mongodb_url: mongodb://mongo-statefulset:27017/
+name: mongo-config
+port: "3001"

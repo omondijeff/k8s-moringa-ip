@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+app: backend
+kind: Service
+metadata: null
+name: backend-service
+ports:
+  - name: http
+    port: 3001
+    targetPort: 3001
+    type: ClusterIP
+selector: null
+spec: null
